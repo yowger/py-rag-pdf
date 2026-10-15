@@ -3,9 +3,7 @@ from pathlib import Path
 
 from rich.console import Console
 from rich.panel import Panel
-from rich.syntax import Syntax
 from rich.table import Table
-from rich.text import Text
 
 from rag_pdf.ingestion.loader import load_epub
 
@@ -19,12 +17,14 @@ PROJECT_ROOT = next(
 epub_file = PROJECT_ROOT / "data" / "documents" / "progit.epub"
 
 documents = load_epub(epub_file)
+documents = load_epub(epub_file)
+
 
 console.print(
     f"\n[bold green]Elements loaded:[/bold green] {len(documents)}\n"
 )
 
-for index, document in enumerate(documents[:5], start=1):
+for index, document in enumerate(documents[:20], start=20):
     metadata_table = Table(
         title=f"Document {index} Metadata",
         show_header=True,

@@ -1,23 +1,15 @@
 
-from pathlib import Path
-
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
 
 from rag_pdf.ingestion.loader import load_epub
 from rag_pdf.ingestion.chunker import chunk_documents
+from rag_pdf.config import EPUB_PATH
 
 console = Console()
 
-project_root = next(
-    p for p in Path(__file__).resolve().parents
-    if (p / ".git").exists()
-)
-
-epub_file = project_root / "data" / "documents" / "progit.epub"
-
-documents = load_epub(epub_file)
+documents = load_epub(EPUB_PATH)
 chunks = chunk_documents(documents)
 
 console.print(f"[green]Original elements:[/green] {len(documents)}")
