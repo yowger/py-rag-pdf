@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from rag_pdf.ingestion.loader import load_epub
 from rag_pdf.ingestion.chunker import chunk_documents
 from rag_pdf.indexing.vector_store import create_vector_store
+from rag_pdf.indexing.filter import filter_metadata
 from rag_pdf.config import EPUB_PATH, CHROMA_DIR
 
 load_dotenv()
@@ -10,6 +11,7 @@ load_dotenv()
 documents = load_epub(EPUB_PATH)
 
 chunks = chunk_documents(documents)
+chunks = filter_metadata(chunks)
 
 vector_store = create_vector_store(
     chunks=chunks,
