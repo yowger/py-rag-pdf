@@ -54,7 +54,7 @@ for item in TEST_QUESTIONS:
         )
     )
 
-    console.print(f"\n[/bold green]expected answer:[/bold green] {expected_topic}")
+    console.print(f"\n[bold green]expected answer:[/bold green] {expected_topic}")
     console.print(f"\n[bold green]Results found:[/bold green] {len(results)}")
 
     for index, document in enumerate(results, start=1):
