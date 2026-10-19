@@ -7,7 +7,7 @@ from rag_pdf.config import CHROMA_DIR
 
 console = Console()
 
-query = "What is Git and why was it created?"
+query = "Whats Git"
 
 results = search_documents(
     query=query,
