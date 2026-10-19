@@ -42,8 +42,8 @@ for item in TEST_QUESTIONS:
     results = search_documents(
         query=question,
         persist_directory=CHROMA_DIR,
-        # k=4,
-        k=2,
+        k=4,
+        # k=2,
     )
 
     console.print(
@@ -54,7 +54,7 @@ for item in TEST_QUESTIONS:
         )
     )
 
-    console.print(f"\nexpected answer:[/bold green] {expected_topic}")
+    console.print(f"\n[/bold green]expected answer:[/bold green] {expected_topic}")
     console.print(f"\n[bold green]Results found:[/bold green] {len(results)}")
 
     for index, document in enumerate(results, start=1):
