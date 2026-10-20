@@ -20,4 +20,5 @@ def search_documents(
 ):
     vector_store = get_vector_store(persist_directory)
 
-    return vector_store.similarity_search(query, k=k)
+    # return vector_store.similarity_search(query, k=k)
+    return vector_store.similarity_search_with_score(query, k=k)

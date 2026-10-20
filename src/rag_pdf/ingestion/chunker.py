@@ -1,6 +1,7 @@
 
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from rag_pdf.ingestion.print_doc import print_documents
 
 
 def build_headings_map(
