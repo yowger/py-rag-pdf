@@ -1,10 +1,8 @@
 from pathlib import Path
 
-from rag_pdf.config import CHROMA_DIR
+from rag_pdf.path import CHROMA_DIR
 from rag_pdf.retrieval import search_documents
 from rag_pdf.generation import generate_answer
-
-import json
 
 
 def answer_question(
@@ -64,7 +62,3 @@ def answer_question(
             for document, score in results
         ],
     }
-
-
-answer = answer_question("How do i git push")
-print(json.dumps(answer, indent=4))

@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 
-from rag_pdf.config import EPUB_PATH, CHROMA_DIR
+from rag_pdf.path import EPUB_PATH, CHROMA_DIR
 from rag_pdf.ingestion.loader import load_epub
 from rag_pdf.ingestion.print_doc import print_documents
 from rag_pdf.ingestion.chunker import chunk_documents

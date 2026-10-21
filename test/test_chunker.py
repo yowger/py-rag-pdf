@@ -5,7 +5,7 @@ from rich.table import Table
 
 from rag_pdf.ingestion.loader import load_epub
 from rag_pdf.ingestion.chunker import chunk_documents
-from rag_pdf.config import EPUB_PATH
+from rag_pdf.path import EPUB_PATH
 
 console = Console()
 

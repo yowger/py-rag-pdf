@@ -13,6 +13,11 @@ You answer questions about Git using the supplied context.
 - Cite the source numbers used, such as [Source 1].
 """
 
+model = ChatOpenAI(
+    model="gpt-4o-mini",
+    temperature=0,
+)
+
 
 def generate_answer(question: str, context: str) -> str:
     prompt = ChatPromptTemplate.from_messages(
@@ -24,11 +29,6 @@ def generate_answer(question: str, context: str) -> str:
                 "Question: {question}",
             ),
         ]
-    )
-
-    model = ChatOpenAI(
-        model="gpt-4o-mini",
-        temperature=0,
     )
 
     chain = prompt | model | StrOutputParser()

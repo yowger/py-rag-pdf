@@ -1,4 +1,4 @@
-from rag_pdf.config import EPUB_PATH
+from rag_pdf.path import EPUB_PATH
 from rag_pdf.ingestion.loader import load_epub
 from rag_pdf.ingestion.print_doc import print_documents, print_document_stats, print_short_documents
 
