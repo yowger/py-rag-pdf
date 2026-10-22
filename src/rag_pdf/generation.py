@@ -1,4 +1,3 @@
-
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
@@ -13,27 +12,28 @@ You answer questions about Git using the supplied context.
 - Cite the source numbers used, such as [Source 1].
 """
 
-model = ChatOpenAI(
+prompt = ChatPromptTemplate.from_messages(
+    [
+        ("system", SYSTEM_PROMPT),
+        (
+            "human",
+            "Context:\n{context}\n\n"
+            "Question: {question}",
+        ),
+    ]
+)
+
+llm = ChatOpenAI(
     model="gpt-4o-mini",
     temperature=0,
 )
 
 
+rag_chain = prompt | llm | StrOutputParser()
+
+
 def generate_answer(question: str, context: str) -> str:
-    prompt = ChatPromptTemplate.from_messages(
-        [
-            ("system", SYSTEM_PROMPT),
-            (
-                "human",
-                "Context:\n{context}\n\n"
-                "Question: {question}",
-            ),
-        ]
-    )
-
-    chain = prompt | model | StrOutputParser()
-
-    return chain.invoke(
+    return rag_chain.invoke(
         {
             "question": question,
             "context": context,

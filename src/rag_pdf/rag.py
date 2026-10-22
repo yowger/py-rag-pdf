@@ -53,12 +53,7 @@ def answer_question(
             {
                 "section": document.metadata.get(
                     "section_path",
-                    "Unknown section",
                 ),
-                # debugging...
-                # "content": document.page_content,
-                # "distance": score,
             }
-            for document, score in results
         ],
     }
