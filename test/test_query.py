@@ -125,54 +125,54 @@ TEST_QUESTIONS = [
     # }
 ]
 
-for item in TEST_QUESTIONS:
-    question = item["question"]
-    expected_topic = item["expected_topic"]
-    expected_answer = item["expected_answer"]
+# for item in TEST_QUESTIONS:
+#     question = item["question"]
+#     expected_topic = item["expected_topic"]
+#     expected_answer = item["expected_answer"]
 
-    results = search_documents(
-        query=question,
-        persist_directory=CHROMA_DIR,
-        k=4,
-        # k=6,
-        # k=2,
-    )
+#     results = search_documents(
+#         query=question,
+#         persist_directory=CHROMA_DIR,
+#         k=4,
+#         # k=6,
+#         # k=2,
+#     )
 
-    console.print(
-        Panel(
-            question,
-            title="[bold cyan]Search Query[/bold cyan]",
-            border_style="cyan",
-        )
-    )
+#     console.print(
+#         Panel(
+#             question,
+#             title="[bold cyan]Search Query[/bold cyan]",
+#             border_style="cyan",
+#         )
+#     )
 
-    console.print(
-        f"\n[bold green]expected topic:[/bold green] {expected_topic}")
-    console.print(
-        f"\n[bold green]expected answer:[/bold green] {expected_answer}")
-    console.print(f"\n[bold green]Results found:[/bold green] {len(results)}")
+#     console.print(
+#         f"\n[bold green]expected topic:[/bold green] {expected_topic}")
+#     console.print(
+#         f"\n[bold green]expected answer:[/bold green] {expected_answer}")
+#     console.print(f"\n[bold green]Results found:[/bold green] {len(results)}")
 
-    for index, (document, score) in enumerate(results, start=1):
-        console.print(
-            Panel(
-                document.page_content,
-                title=f"[bold blue]Result {index}[/bold blue]",
-                subtitle=f"{len(document.page_content)} characters. Score {score:.4f}",
-                border_style="blue",
-            )
-        )
+#     for index, (document, score) in enumerate(results, start=1):
+#         console.print(
+#             Panel(
+#                 document.page_content,
+#                 title=f"[bold blue]Result {index}[/bold blue]",
+#                 subtitle=f"{len(document.page_content)} characters. Score {score:.4f}",
+#                 border_style="blue",
+#             )
+#         )
 
-        metadata_table = Table(
-            title=f"Result {index} Metadata",
-            show_header=True,
-            header_style="bold magenta",
-        )
+#         metadata_table = Table(
+#             title=f"Result {index} Metadata",
+#             show_header=True,
+#             header_style="bold magenta",
+#         )
 
-        metadata_table.add_column("Key", style="cyan", no_wrap=True)
-        metadata_table.add_column("Value", style="white", overflow="fold")
+#         metadata_table.add_column("Key", style="cyan", no_wrap=True)
+#         metadata_table.add_column("Value", style="white", overflow="fold")
 
-        for key, value in document.metadata.items():
-            metadata_table.add_row(str(key), str(value))
+#         for key, value in document.metadata.items():
+#             metadata_table.add_row(str(key), str(value))
 
-        console.print(metadata_table)
-        console.print()
+#         console.print(metadata_table)
+#         console.print()

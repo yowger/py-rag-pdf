@@ -39,6 +39,9 @@ class Settings(BaseSettings):
     cache_ttl_seconds: int = 300
     max_retries: int = 3
 
+    # vector store
+    collection_name: str = "pro_git"
+
     @property
     def is_production(self) -> bool:
         return self.app_env.lower() == "production"
@@ -48,5 +51,3 @@ class Settings(BaseSettings):
 def get_settings() -> Settings:
     """Cached settings instance - loaded once, reused everywhere."""
     return Settings()
-
-
