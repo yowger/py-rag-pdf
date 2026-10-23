@@ -71,3 +71,7 @@ rag_chain = (
 
 def answer_question(question: str) -> str:
     return rag_chain.invoke(question)
+
+
+def stream_answer(question: str):
+    yield from rag_chain.stream(question)
