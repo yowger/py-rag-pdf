@@ -71,10 +71,3 @@ rag_chain = (
 
 def answer_question(question: str) -> str:
     return rag_chain.invoke(question)
-
-
-answer = answer_question(
-    "What is the difference between git stash apply and git stash pop?"
-)
-
-print(answer)

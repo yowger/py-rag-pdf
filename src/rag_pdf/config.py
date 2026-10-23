@@ -16,7 +16,7 @@ class Settings(BaseSettings):
 
     # LLM models
     intent_model: str = "gpt-4o-mini"
-    answer_model: str = "gpt-4o-mini"
+    answer_model: str = "gpt-4o"
     query_rewrite_model: str = "gpt-4o-mini"
 
     # Embedding model
